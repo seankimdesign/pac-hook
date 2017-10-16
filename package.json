@@ -1,0 +1,22 @@
+{
+  "name": "pac-hook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --watchAll",
+    "lint": "./node_modules/standard/bin/cmd.js --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "jest": "^21.2.1",
+    "standard": "^10.0.3"
+  }
+}
