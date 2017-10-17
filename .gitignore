@@ -9,6 +9,8 @@ pids
 *.seed
 *.pid.lock
 
+.idea/
+
 # Compiled
 public/script
 
