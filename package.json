@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "gulp",
     "test": "jest --verbose --watchAll",
     "lint": "./node_modules/standard/bin/cmd.js --fix"
   },

@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const messageHandler = require('./messageHandler')
+const { messageHandler, responseHandler } = require('./handlers')
 
 app.use('/', express.static('public'))
 
