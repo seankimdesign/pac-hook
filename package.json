@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp",
     "test": "jest --verbose --watchAll",
-    "lint": "./node_modules/standard/bin/cmd.js --fix"
+    "lint": "./node_modules/standard/bin/cmd.js --fix || true"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,12 @@
     "gulp-babel": "^7.0.0",
     "jest": "^21.2.1",
     "standard": "^10.0.3"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "test",
+      "expect"
+    ]
   }
 }
