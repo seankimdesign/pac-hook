@@ -1,4 +1,4 @@
-const { isIcon, assemblePayload, unpackResponse } = require('../formatters')
+const { isIcon, assemblePayload } = require('../formatters')
 
 describe(`isIcon() works correctly`, () => {
   test(`returns true for '@sean.kim'`, () => {
@@ -14,12 +14,10 @@ describe(`isIcon() works correctly`, () => {
 
 describe(`assemblePayload() works correctly`, () => {
   const correctPayload = {
-    name: 'Anonymous Wolf',
-    destination: '#lunch_bunch',
-    image: {
-      icon: ':wolf:'
-    },
-    message: 'This is a test message right here!'
+    username: 'Anonymous Wolf',
+    channel: '#lunch_bunch',
+    icon_emoji: ':wolf:',
+    text: 'This is a test message right here!'
   }
   test(`returns a correctly assembled object`, () => {
     expect(assemblePayload('Anonymous Wolf', '#lunch_bunch', ':wolf:', 'This is a test message right here!')).toMatchObject(correctPayload)

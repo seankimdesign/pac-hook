@@ -3,16 +3,16 @@ const isIcon = (src) => {
 }
 exports.isIcon = isIcon
 
-const assemblePayload = (name, destination, img, message) => {
+const assemblePayload = (username, channel, img, text) => {
   const payload = {
-    name,
-    destination,
-    message
+    username,
+    channel,
+    text
   }
-  if (isIcon(img)){
-    payload.image = {icon: img}
+  if (isIcon(img)) {
+    payload.icon_emoji = img
   } else {
-    payload.image = {src: img}
+    payload.icon_url = img
   }
   return payload
 }

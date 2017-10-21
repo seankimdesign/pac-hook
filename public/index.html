@@ -33,6 +33,12 @@
         .button.is-info.is-hovered, .button.is-info:hover{
             background-color: #0b7ed0;
         }
+        .is-invisible{
+            display: none;
+        }
+        .is-wide{
+            width: 14em;
+        }
     </style>
 </head>
 <body>
@@ -60,68 +66,73 @@
                     <article class="tile notification is-child is-warning">
                         <p class="title">Send a Message</p>
                         <div class="field">
-                            <label class="label">Display Name</label>
+                            <label class="label" for="username">Display Name</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="text" placeholder="Anonymous Penguin">
+                                <input id="username" class="input" type="text" placeholder="Anonymous Penguin">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-user"></i>
                                 </span>
                             </div>
-                            <p class="help">This is the name that your message will display as. You can choose any name you like as long as it's not offensive.</p>
+                            <p data-link="username" class="help">This is the name that your message will display as. You can choose any name you like as long as it's not offensive.</p>
+                            <p data-link="username" class="help is-danger validation-fail is-invisible">Please choose a valid display name.</p>
                         </div>
                         <div class="field">
-                            <label class="label">Display Image</label>
+                            <label for="image" class="label">Display Image</label>
                         </div>
                         <div class="field has-addons">
                             <div class="control">
                                 <span class="select">
                                   <select>
-                                    <option>Icon</option>
-                                    <option>Image</option>
+                                    <option value="icon">Icon</option>
+                                    <option value="image">Image</option>
                                   </select>
                                 </span>
                             </div>
                             <div class="control full-width">
-                                <input class="input" type="text" placeholder=":penguin:">
+                                <input id="image" class="input" type="text" data-placeholder-icon=":penguin:" data-placeholder-image="https://68.media.tumblr.com/avatar_5eb52a2a3725_128.png">
                             </div>
                         </div>
                         <div class="field">
-                            <p class="help">This is the thumbnail image that will display along with your message. You can choose any slack icon or an external image.</p>
+                            <p data-link="image" class="help">This is the thumbnail image that will display along with your message. You can choose any slack icon or an external image.</p>
+                            <p data-link="image" class="help is-danger validation-fail-image is-invisible">Please choose a valid URL that points to an external image.</p>
+                            <p data-link="image" class="help is-danger validation-fail-icon is-invisible">Please choose a valid icon name. All icon names must be surrounded with a colon such as <b>:smiley:</b></p>
                         </div>
                         <div class="field">
-                            <label class="label">Destination</label>
+                            <label for="channel" class="label">Destination</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="text" placeholder="#random">
+                                <input id="channel" class="input" type="text" placeholder="#random">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-group"></i>
                                 </span>
                             </div>
-                            <p class="help">This is the channel or person that will receive your anonymous message. Please take care not to disrupt others or send unwanted messages.</p>
+                            <p data-link="channel" class="help">This is the channel or person that will receive your anonymous message. Please take care not to disrupt others or send unwanted messages.</p>
+                            <p data-link="channel" class="help is-danger validation-fail is-invisible">Please choose a valid destination. You can either choose a channel such as <b>#random</b> or a person such as <b>@luca.pacioli</b></p>
                         </div>
                         <div class="field">
-                            <label class="label">Message</label>
+                            <label for="text" class="label">Message</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="message"></textarea>
+                                <textarea id="text" class="textarea" placeholder="message"></textarea>
                             </div>
-                            <p class="help">You can format your messages as following:<br/>
+                            <p data-link="text" class="help">You can format your messages as following:<br/>
                                 <b>*bold*</b>&nbsp;&nbsp;<i>_italics</i>&nbsp;&nbsp;~strike~&nbsp;&nbsp;`code`</p>
+                            <p data-link="text" class="help is-danger validation-fail is-invisible">Please add your message.</p>
                         </div>
                         <div class="field is-grouped is-pulled-right clear-large-top">
                             <div class="control">
-                                <a class="button is-outlined">
+                                <button class="button is-outlined">
                                     <span class="icon">
                                         <i class="fa fa-times"></i>
                                     </span>
                                     <span>Reset</span>
-                                </a>
+                                </button>
                             </div>
                             <div class="control">
-                                <a class="button is-info">
+                                <button class="button is-info is-wide" disabled>
                                     <span class="icon">
                                         <i class="fa fa-send"></i>
                                     </span>
                                     <span>Send</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -131,8 +142,8 @@
                         <p class="title clear-top">What is this?</p>
                         <div class="content">
                             <p>We all know Paciolan is full of fun and creative people with lots of interesting things to say. How much more fun would it be if we could sometimes don a silly mask and cause some mild confusion among our peers? This tool leverages the <a href="https://api.slack.com/incoming-webhooks" target="_blank">incoming webhooks API</a> inherent to Slack, and simply makes its functionality accessible everyone within our organization regardless of their technical prowess.</p>
-                            <p>This tool is not an official Paciolan product - and does not associate itself with the company in any way. It is something that was whipped up by a bored engineer one Thursday night, so please do not bother him or anyone else with questions or bug reports.</p>
-                            <p><strong>A quick word of caution</strong> - while this tool allows you to post slack messages under a monicker of your choosing, it will not be enough to provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that could get you in trouble.</p>
+                            <p>This tool is not an official Paciolan product - and does not associate itself with the company in any way.</p>
+                            <p><strong>A quick word of caution</strong> - while this tool allows you to post slack messages under a monicker of your choosing, it will not be enough to provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that may land you in trouble.</p>
                         </div>
                     </article>
                 </div>
