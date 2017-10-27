@@ -1,4 +1,4 @@
-const isValidString = (str) => typeof str === 'string' && str.length > 0
+const isValidString = (str) => typeof str === 'string' && str.trim().length > 0
 exports.isValidString = isValidString
 
 // Not really alphanumeric, since it allows periods, dashes, and underscores
@@ -13,3 +13,9 @@ exports.isChannel = isChannel
 
 const isValidTarget = (str) => isHandle(str) || isChannel(str)
 exports.isValidTarget = isValidTarget
+
+const isIcon = (src) => src.charAt(0) === ':' && src.slice(-1) === ':'
+exports.isIcon = isIcon
+
+const isImage = (src) => src.length > 8
+exports.isImage = isImage

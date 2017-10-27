@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp",
+    "start": "webpack && node index.js",
+    "build": "webpack",
     "test": "jest --verbose --watchAll",
     "lint": "./node_modules/standard/bin/cmd.js --fix || true"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2"
   },
   "devDependencies": {

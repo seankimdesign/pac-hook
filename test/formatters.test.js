@@ -1,16 +1,4 @@
-const { isIcon, assemblePayload } = require('../formatters')
-
-describe(`isIcon() works correctly`, () => {
-  test(`returns true for '@sean.kim'`, () => {
-    expect(isIcon(':penguin:')).toBe(true)
-  })
-  test(`returns false for '#lunch_bunch`, () => {
-    expect(isIcon(':hello')).toBe(false)
-  })
-  test(`returns false for '@great@stuff'`, () => {
-    expect(isIcon('not:right:')).toBe(false)
-  })
-})
+const { assemblePayload } = require('../formatters')
 
 describe(`assemblePayload() works correctly`, () => {
   const correctPayload = {

@@ -1,4 +1,4 @@
-const { isValidString, isAlphanumeric, isHandle, isChannel, isValidTarget } = require('../validators')
+const { isValidString, isAlphanumeric, isHandle, isChannel, isValidTarget, isIcon } = require('../validators')
 
 describe(`isValidString() works correctly`, () => {
   test(`returns true for 'hello world!'`, () => {
@@ -63,5 +63,17 @@ describe(`isValidTarget() works correctly`, () => {
   })
   test(`returns false for string '#user@domain.com'`, () => {
     expect(isValidTarget('#user@domain.com')).toBe(false)
+  })
+})
+
+describe(`isIcon() works correctly`, () => {
+  test(`returns true for '@sean.kim'`, () => {
+    expect(isIcon(':penguin:')).toBe(true)
+  })
+  test(`returns false for '#lunch_bunch`, () => {
+    expect(isIcon(':hello')).toBe(false)
+  })
+  test(`returns false for '@great@stuff'`, () => {
+    expect(isIcon('not:right:')).toBe(false)
   })
 })

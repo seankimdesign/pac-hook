@@ -1,6 +1,9 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const { messageHandler, responseHandler } = require('./handlers')
+
+app.use(bodyParser.json())
 
 app.use('/', express.static('public'))
 

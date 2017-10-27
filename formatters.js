@@ -1,7 +1,4 @@
-const isIcon = (src) => {
-  return src.charAt(0) === ':' && src.slice(-1) === ':'
-}
-exports.isIcon = isIcon
+const { isIcon } = require('./validators')
 
 const assemblePayload = (username, channel, img, text) => {
   const payload = {
