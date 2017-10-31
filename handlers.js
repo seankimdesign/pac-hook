@@ -22,6 +22,7 @@ const messageHandler = (req, res) => {
   const domain = req.get('host')
   const userIp = req.socket.remoteAddress
   const bodyContent = JSON.stringify(req.body)
+  console.log(domain)
   if (domain === APP_CONST.application_domain && isPayload(bodyContent)) {
     setTimeout(() => fetch(webhooksURL, {
       method: 'POST',
