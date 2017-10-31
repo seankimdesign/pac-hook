@@ -1,5 +1,5 @@
 module.exports = {
-  application_domain: 'packslack.tk',
+  application_domain: 'pacslack.tk',
   log_path: 'logs/',
   log_ext: '.txt',
   icon: 'icon',
