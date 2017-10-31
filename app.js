@@ -158,7 +158,7 @@ const { toggleClass, overwriteClass } = require('./dom')
             if (result === 2000) {
               resetFields(true)
               displayNotification(true, APP_CONST.posted_message)
-            } else if (result === 2003) {
+            } else {
               resetFields(true)
               displayNotification(false, APP_CONST.not_posted_message + message)
             }

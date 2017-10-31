@@ -1,4 +1,7 @@
 module.exports = {
+  application_domain: 'packslack.tk',
+  log_path: 'logs/',
+  log_ext: '.txt',
   icon: 'icon',
   image: 'image',
   invis: 'is-invisible',
@@ -17,7 +20,7 @@ module.exports = {
   not_posted_message: '[MESSAGE FAILURE] There was an error with your request: ',
   code_success: 2000,
   code_invalid_request: 2001,
-  code_time_out: 2002,
+  code_server_error: 2002,
   code_server_rejected: 2003,
   code_unknown_error: 2999,
 }
