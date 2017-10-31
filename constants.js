@@ -23,4 +23,5 @@ module.exports = {
   code_server_error: 2002,
   code_server_rejected: 2003,
   code_unknown_error: 2999,
+  log_enabled: true
 }

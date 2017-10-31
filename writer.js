@@ -4,6 +4,10 @@ const fs = require('fs')
 const APP_CONST = require('./constants')
 
 const writeLog = (fileName, message) => new Promise((resolve, reject) => {
+  if (!APP_CONST.log_enabled){
+    resolve()
+    return
+  }
   const filePath = path.resolve(__dirname, APP_CONST.log_path, fileName)
   fs.access(filePath, 'wx', (err) => {
     if (err) {

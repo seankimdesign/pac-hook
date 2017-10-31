@@ -23,6 +23,9 @@ const messageHandler = (req, res) => {
   const userIp = req.socket.remoteAddress
   const bodyContent = JSON.stringify(req.body)
   console.log(domain)
+  console.log(APP_CONST.application_domain)
+  console.log(domain === APP_CONST.application_domain)
+  console.log(isPayload(bodyContent))
   if (domain === APP_CONST.application_domain && isPayload(bodyContent)) {
     setTimeout(() => fetch(webhooksURL, {
       method: 'POST',
@@ -32,9 +35,11 @@ const messageHandler = (req, res) => {
       body: bodyContent
     }).then((serverRes) => serverRes.text())
       .then((serverRes) => {
+        console.log('success - pre write log')
         const logContent = constructLogMessage(userIp, bodyContent, serverRes)
         writeLog(constructFileName(), logContent)
           .then(() => {
+            console.log('success - post write log')
             if (serverRes === 'ok'){
               res.json({result: APP_CONST.code_success})
             } else {
