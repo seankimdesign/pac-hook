@@ -4,7 +4,7 @@ const webhooksURL = require('./url')
 const APP_CONST = require('./constants')
 const { isPayload } = require('./formatters')
 
-const messageBuffer = 1500
+const messageBuffer = 600
 
 const messageHandler = (req, res) => {
   console.log(req.domain)
