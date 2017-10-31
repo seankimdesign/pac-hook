@@ -40,7 +40,7 @@
             background-color: #0b7ed0;
         }
         .center-image{
-            margin: 3em auto;
+            margin: 2em auto;
             display: block;
         }
         .is-invisible{
@@ -80,6 +80,22 @@
         .notification > .delete{
             right: 1em;
             top: 1.5em;
+        }
+        .center-icon{
+            margin: 10px auto 30px;
+            display: block;
+            height: 64px;
+            text-align: center;
+            width: 64px;
+        }
+        .overlap-icon{
+            display: block;
+            margin: 0 auto 10px;
+            width: 64px;
+            text-align: center;
+        }
+        .link-color{
+            color: #3273dc;
         }
     </style>
 </head>
@@ -212,9 +228,15 @@
                                 <img src="img/how-to.png" class="center-image" />
                             </div>
                             <div class="tab-content is-invisible" id="what-content">
-                                <p>We all know Paciolan is full of fun and creative people with lots of interesting things to say. How much more fun would it be if we could sometimes don a silly mask and cause some mild confusion among our peers? This tool leverages the <a href="https://api.slack.com/incoming-webhooks" target="_blank">incoming webhooks API</a> inherent to Slack, and simply makes its functionality accessible everyone within our organization regardless of their technical prowess.</p>
+                                <span class="icon overlap-icon link-color">
+                                    <i class="fa fa-code fa-spin fa-2x"></i>
+                                </span>
+                                <span class="icon center-icon  link-color">
+                                    <i class="fa fa-child fa-4x"></i>
+                                </span>
+                                <p>As the name suggests, this web application will allow you to post anonymous messages on Paciolan slack. This tool leverages the <a href="https://api.slack.com/incoming-webhooks" target="_blank">incoming webhooks API</a> inherent to Slack, and simply makes its functionality accessible everyone within our organization regardless of their technical prowess.</p>
                                 <p>This tool is not an official Paciolan product - and does not associate itself with the company in any way.</p>
-                                <p><strong>A quick word of caution</strong> - while this tool allows you to post slack messages under any monicker of your choosing, it will not provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that may land you in trouble.</p>
+                                <p><strong>A word of caution</strong> - while this tool allows you to post slack messages under any monicker of your choosing, it will not provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that may land you in trouble.</p>
                             </div>
 
                         </div>
