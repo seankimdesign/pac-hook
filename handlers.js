@@ -31,11 +31,9 @@ const messageHandler = (req, res) => {
       body: bodyContent
     }).then((serverRes) => serverRes.text())
       .then((serverRes) => {
-        console.log('success - pre write log')
         const logContent = constructLogMessage(userIp, bodyContent, serverRes)
         writeLog(constructFileName(), logContent)
           .then(() => {
-            console.log('success - post write log')
             if (serverRes === 'ok'){
               res.json({result: APP_CONST.code_success})
             } else {
