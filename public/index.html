@@ -39,14 +39,47 @@
         .button.is-info.is-hovered, .button.is-info:hover{
             background-color: #0b7ed0;
         }
+        .center-image{
+            margin: 3em auto;
+            display: block;
+        }
         .is-invisible{
-            display: none;
+            display: none !important;
         }
         .is-wide{
             width: 12em;
         }
+        .center-align{
+            text-align: center;
+        }
         .reduced{
             font-size: 0.85em;
+        }
+        .flex-tile{
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-content{
+            background-color: white;
+            border: 1px solid #ddd;
+            border-top: 0;
+            padding: 1.5em;
+            min-height: 700px;
+            flex-grow: 1;
+        }
+        .tab-content > p {
+            line-height: 1.6em;
+            margin-top: 0.8em;
+        }
+        .tabs.no-margin:not(:last-child){
+            margin-bottom: 0;
+        }
+        .tabs.is-boxed a:hover{
+            background-color: #eee;
+        }
+        .notification > .delete{
+            right: 1em;
+            top: 1.5em;
         }
     </style>
 </head>
@@ -67,11 +100,17 @@
     </div>
 </section>
 <section class="section">
-    <div class="columns">
-        <div class="column"></div>
-        <div class="column is-two-thirds">
+    <div id="bad-browser" class="is-invisible">
+        <p class="title center-align">Your browser seems really outdated :(</p>
+    </div>
+    <div id="page" class="columns is-invisible">
+        <div class="column is-10-desktop is-12-tablet is-offset-1-desktop">
+            <div id="global-notification-box" class="notification is-warning is-invisible">
+                <button id="close-global-notification" class="delete"></button>
+                <span id="global-notification-message"></span>
+            </div>
             <div class="tile is-ancestor">
-                <div class="tile is-parent is-vertical is-8">
+                <div class="tile is-parent is-vertical is-7">
                     <article class="tile notification is-child is-dark is-clearfix">
                         <p class="title"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Send a Message</p>
                         <div class="field">
@@ -147,18 +186,42 @@
                     </article>
                 </div>
                 <div class="tile is-parent is-vertical">
-                    <article class="tile is-child">
-                        <p class="title clear-top"><i class="fa fa-heart reduced"></i>&nbsp;What is this?</p>
-                        <div class="content">
-                            <p>We all know Paciolan is full of fun and creative people with lots of interesting things to say. How much more fun would it be if we could sometimes don a silly mask and cause some mild confusion among our peers? This tool leverages the <a href="https://api.slack.com/incoming-webhooks" target="_blank">incoming webhooks API</a> inherent to Slack, and simply makes its functionality accessible everyone within our organization regardless of their technical prowess.</p>
-                            <p>This tool is not an official Paciolan product - and does not associate itself with the company in any way.</p>
-                            <p><strong>A quick word of caution</strong> - while this tool allows you to post slack messages under a monicker of your choosing, it will not be enough to provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that may land you in trouble.</p>
+                    <article class="tile is-child flex-tile">
+                        <div class="tabs is-centered is-boxed no-margin">
+                            <ul>
+                                <li class="tab-group is-active" id="how-tab">
+                                    <a class="tab-anchor" data-content="how">
+                                        <i class="fa fa-search reduced"></i>&nbsp;&nbsp;
+                                        <span>How to use</span>
+                                    </a>
+                                </li>
+                                <li class="tab-group" id="what-tab">
+                                    <a class="tab-anchor" data-content="what">
+                                        <i class="fa fa-question-circle reduced"></i>&nbsp;&nbsp;
+                                        <span>What is this</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents">
+                            <div class="tab-content" id="how-content">
+                                <div id="how-notification-box" class="notification is-warning">
+                                    <button id="close-how-notification" class="delete"></button>
+                                    Compose your messages under an alias and anonymously post to any channel or person using Paciolan slack!
+                                </div>
+                                <img src="img/how-to.png" class="center-image" />
+                            </div>
+                            <div class="tab-content is-invisible" id="what-content">
+                                <p>We all know Paciolan is full of fun and creative people with lots of interesting things to say. How much more fun would it be if we could sometimes don a silly mask and cause some mild confusion among our peers? This tool leverages the <a href="https://api.slack.com/incoming-webhooks" target="_blank">incoming webhooks API</a> inherent to Slack, and simply makes its functionality accessible everyone within our organization regardless of their technical prowess.</p>
+                                <p>This tool is not an official Paciolan product - and does not associate itself with the company in any way.</p>
+                                <p><strong>A quick word of caution</strong> - while this tool allows you to post slack messages under any monicker of your choosing, it will not provide complete anonymity in case of legal or HR related issues. Please do not say or post anything via this tool that may land you in trouble.</p>
+                            </div>
+
                         </div>
                     </article>
                 </div>
             </div>
         </div>
-        <div class="column"></div>
     </div>
 </section>
 <script src="script/script.js" type="text/javascript"></script>

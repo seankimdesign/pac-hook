@@ -17,6 +17,8 @@ public/script
 # Dependency directories
 node_modules/
 
+url.js
+
 # Optional npm cache directory
 .npm
 

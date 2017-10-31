@@ -6,6 +6,9 @@ exports.hasClass = hasClass
 const addClass = (elem, targetClass) => elem.className += ' ' + targetClass
 exports.addClass = addClass
 
+const overwriteClass = (elem, targetClass) => elem.className = targetClass
+exports.overwriteClass = overwriteClass
+
 const removeClass = (elem, targetClass) => {
   elem.className = elem.className.split(' ')
     .filter((cls) => cls !== targetClass)
@@ -13,14 +16,14 @@ const removeClass = (elem, targetClass) => {
 }
 exports.removeClass = removeClass
 
-const toggleVisibility = (elem, visibility) => {
-  if (typeof visibility !== 'undefined') {
-    removeClass(elem, APP_CONST.invis)
-    if (visibility === false) addClass(elem, APP_CONST.invis)
-  } else if (hasClass(elem, APP_CONST.invis)) {
-    removeClass(elem, APP_CONST.invis)
+const toggleClass = (elem, className, forceOff) => {
+  if (typeof forceOff !== 'undefined') {
+    removeClass(elem, className)
+    if (forceOff === false) addClass(elem, className)
+  } else if (hasClass(elem, className)) {
+    removeClass(elem, className)
   } else {
-    addClass(elem, APP_CONST.invis)
+    addClass(elem, className)
   }
 }
-exports.toggleVisibility = toggleVisibility
+exports.toggleClass = toggleClass

@@ -19,3 +19,6 @@ exports.isIcon = isIcon
 
 const isImage = (src) => src.length > 8
 exports.isImage = isImage
+
+const allValid = (validationArr) => validationArr.every((input) => input.validated)
+exports.allValid = allValid
