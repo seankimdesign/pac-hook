@@ -9,6 +9,8 @@ const messageBuffer = 600
 const messageHandler = (req, res) => {
   console.log(req.domain)
   console.log(req.url)
+  console.log(req.get('host'))
+  console.log(req.socket.remoteAddress)
   const bodyContent = req.body
   if (isPayload(bodyContent)) {
     setTimeout(() => fetch(webhooksURL, {
